@@ -12,13 +12,13 @@ Application complète de collecte d’avis composée :
 
 ## Frontend  
 - Framework : **React + Vite + TypeScript**  
-- Hébergé sur : `https://feedback.dt-verse.com`  
+- Hébergé sur : `https://feedback.example.com`  
 - Build dans `dist/`, servi par Apache  
 - Accès API direct **ou** via proxy PHP `/api/proxy.php`
 
 ## Backend  
 - Framework : **FastAPI**  
-- Hébergé via Passenger sur : `https://api.dt-verse.com`  
+- Hébergé via Passenger sur : `https://api.example.com`  
 - Point d’entrée : `passenger_wsgi.py`  
 - Endpoints :
   - `GET /feedbacks/`
@@ -83,13 +83,13 @@ Application :
 | Valeur | Comportement |
 |--------|--------------|
 | vide | utilise `/api/proxy.php?path=...` (proxy PHP) |
-| URL absolue (ex: https://api.dt-verse.com) | appel direct à l’API |
+| URL absolue (ex: https://api.example.com) | appel direct à l’API |
 
 ---
 
 # 🚀 4. Déploiement sur o2switch
 
-## Backend — Passenger (api.dt-verse.com)
+## Backend — Passenger (api.example.com)
 
 1. cPanel → Setup Python App  
 2. Créer l’app Python  
@@ -109,12 +109,12 @@ PassengerPython "/home/USER/virtualenv/fastapi-feedback360/3.12/bin/python"
 
 Tester :
 ```bash
-curl -i https://api.dt-verse.com/feedbacks/
+curl -i https://api.example.com/feedbacks/
 ```
 
 ---
 
-## Frontend — Apache (feedback.dt-verse.com)
+## Frontend — Apache (feedback.example.com)
 
 1. Build :
    ```bash
@@ -124,7 +124,7 @@ curl -i https://api.dt-verse.com/feedbacks/
 
 Arborescence :
 ```
-feedback.dt-verse.com/
+feedback.example.com/
   ├─ index.html
   ├─ assets/
   └─ api/
@@ -193,12 +193,12 @@ Si la réponse commence par `<!doctype html>` → rewrite ou WAF.
 
 ### Tester backend :
 ```bash
-curl -i https://api.dt-verse.com/feedbacks/
+curl -i https://api.example.com/feedbacks/
 ```
 
 ### Tester proxy :
 ```bash
-curl -i https://feedback.dt-verse.com/api/proxy.php?path=/feedbacks/
+curl -i https://feedback.example.com/api/proxy.php?path=/feedbacks/
 ```
 
 ---
